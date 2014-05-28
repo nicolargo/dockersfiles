@@ -1,0 +1,19 @@
+# Install Glances Development branch
+#
+# $ sudo docker.io build -t ubuntu:glances_develop - < glances_develop_install
+#
+# VERSION       1.0
+
+# Use the ubuntu base image provided by dotCloud
+FROM ubuntu
+MAINTAINER Nicolargo, nicolas@nicolargo.com
+
+# Make sure the package repository is up to date
+RUN apt-get -y update
+
+# Install prerequirement
+RUN apt-get install -y python-dev python-pip git lm-sensors
+RUN pip install psutil bottle batinfo https://bitbucket.org/gleb_zhulik/py3sensors/get/tip.tar.gz
+
+# Install Glances from the Pipy repository
+RUN git clone -b develop https://github.com/nicolargo/glances.git
