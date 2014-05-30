@@ -1,0 +1,26 @@
+# Install Glances Development branch
+#
+# $ sudo docker.io build -t centos:glances_develop - < glances_develop_install_centos
+#
+# VERSION       1.0
+
+# Use the centos base image provided by dotCloud
+FROM centos
+MAINTAINER Nicolargo, nicolas@nicolargo.com
+
+# Make sure the package repository is up to date
+RUN yum -y update
+
+# Enable Epol repo
+RUN wget http://mirror-fpt-telecom.fpt.net/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
+RUN rpm -ivh epel-release-6-8.noarch.rpm
+
+# Install prerequirement
+RUN yum install -y python-devel python-pip git gcc
+RUN pip install psutil bottle batinfo argparse
+
+# Patch for current Docker version
+RUN ln -s /proc/mounts /etc/mtab
+
+# Install Glances from the Pipy repository
+RUN git clone -b develop https://github.com/nicolargo/glances.git
