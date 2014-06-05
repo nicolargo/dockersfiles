@@ -1,0 +1,23 @@
+# Install Shinken
+#
+# $ sudo docker.io build -t nicolargo:shinken - < shinken_install
+#
+# VERSION       1.0
+
+# Use the ubuntu base image provided by dotCloud
+FROM ubuntu
+MAINTAINER Nicolargo, nicolas@nicolargo.com
+
+# Make sure the package repository is up to date
+RUN apt-get -y update
+
+# Install pre-requisites
+RUN apt-get -y install curl
+
+# Install Shinken from the installation script
+RUN export TERM=xterm
+RUN curl -L http://install.shinken-monitoring.org | /bin/bash
+
+# Start shinken
+EXPOSE 7767
+CMD ["/etc/init.d/shinken", "start"]

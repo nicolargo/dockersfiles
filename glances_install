@@ -1,6 +1,6 @@
 # Install Glances
 #
-# $ sudo docker.io build -t ubuntu:glances - < glances_install
+# $ sudo docker.io build -t nicolargo:glances - < glances_install
 #
 # VERSION       1.0
 
