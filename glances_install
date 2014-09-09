@@ -14,8 +14,5 @@ RUN apt-get -y update
 # Install prerequirement
 RUN apt-get install -y python-dev python-pip lm-sensors
 
-# Patch for current Docker version
-RUN ln -s /proc/mounts /etc/mtab
-
 # Install Glances from the Pipy repository
 RUN pip install Glances

@@ -19,8 +19,5 @@ RUN rpm -ivh epel-release-6-8.noarch.rpm
 RUN yum install -y python-devel python-pip git gcc
 RUN pip install psutil bottle batinfo argparse
 
-# Patch for current Docker version
-RUN ln -s /proc/mounts /etc/mtab
-
 # Install Glances from the Pipy repository
 RUN git clone -b develop https://github.com/nicolargo/glances.git

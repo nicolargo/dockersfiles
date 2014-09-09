@@ -13,6 +13,3 @@ RUN apt-get -y install curl
 
 # Run the installation script
 RUN curl -L https://raw.githubusercontent.com/nicolargo/glancesautoinstall/master/install.sh | /bin/bash
-
-# Patch for current Docker version
-# RUN ln -s /proc/mounts /etc/mtab
