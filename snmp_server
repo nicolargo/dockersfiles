@@ -1,0 +1,24 @@
+# A SNMPd server in a Docker
+#
+# $ docker build -t nicolargo:snmpd - < snmp_server
+#
+# VERSION       1.0
+
+FROM centos:latest
+MAINTAINER Nicolargo <nicolas@nicolargo.com>
+
+# Install the SNMPd daemon
+RUN yum -y install net-snmp
+RUN yum -y clean
+
+# Go to the root path
+ENV root_path /root
+WORKDIR $root_path
+
+# Create the SNMPd configuration file (open bar...)
+RUN echo 'rocommunity public' > snmpd.conf
+
+# Expose the default SNMPd port
+EXPOSE 161
+
+CMD ["snmpd", "-f", "-c snmpd.conf"]

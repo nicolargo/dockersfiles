@@ -1,6 +1,6 @@
 # Install Glances from the GlancesAutoInstallScript
 #
-# $ docker build -t nicolargo:glances_auto_install - < glances_auto_install
+# $ docker build -t nicolargo:glances_master - < glances_master_install
 #
 # VERSION       1.0
 
