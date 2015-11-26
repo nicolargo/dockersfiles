@@ -3,7 +3,7 @@
 # How to use it:
 # docker build -t nicolargo:glances_develop - < glances_develop_install
 #
-# VERSION       1.0
+# VERSION       2.0
 
 # Use the ubuntu base image provided by dotCloud
 FROM ubuntu

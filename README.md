@@ -15,10 +15,10 @@ Create the image
 Use the image (exemples)
 ========================
 
-Glances standaalone client
+Glances standalone client
 
-    sudo docker.io run -i -t --entrypoint /bin/bash nicolargo:glances_develop -c "cd glances ; git pull origin develop ; python -m glances"
+    sudo docker.io run --pid=host -v /var/run/docker.sock:/var/run/docker.sock:ro -i -t --entrypoint /bin/bash nicolargo:glances_develop -c "cd glances ; git pull origin develop ; python -m glances"
 
-Run a Shnken server (Web interface @IP:7767 with admin/admin as default password)
+Run a Shinken server (Web interface @IP:7767 with admin/admin as default password)
 
 	sudo docker.io run -d -P nicolargo:shinken
